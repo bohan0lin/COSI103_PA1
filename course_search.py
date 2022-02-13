@@ -45,8 +45,22 @@ def topmenu():
             term = input("enter a term:"+str(terms)+":")
             schedule = schedule.term([term]).sort('subject')
         elif command in ['s','subject']:
-            subject = input("enter a subject:")
+            subject = input("enter a subject: ")
             schedule = schedule.subject([subject])
+        # elif command in ['c', 'course']:
+        #     coursenum = input("enter a course number: ")
+        #     schedule = Schedule([course for course in schedule.courses if coursenum.split(" ")[0] == course['code'][0] and  coursenum.split(" ")[1] == course['code'][1]])
+        # elif command in ['i', 'instructor']:
+        #     instructor = input("enter an instructor name: ")
+        #     schedule = Schedule([course for course in schedule.courses if instructor in course['instructor']])
+        elif command in ['title']:
+            phrase = input("enter a title: ")
+            schedule = schedule.title(phrase)
+        elif command in ['d', 'description']:
+            description = input("enter a phrase for searching in the description: ")
+            schedule = schedule.description(description)
+        elif command in ['v', 'vacant']:
+            schedule = schedule.vacancy()
         else:
             print('command',command,'is not supported')
             continue
