@@ -23,7 +23,8 @@ timeofday (filter by day and time, e.g. meets at 11 on Wed)
 '''
 
 terms = {c['term'] for c in schedule.courses}
-
+course = {c['code'] for c in schedule.courses}
+instructor={c['instructor'][1:2] for c in schedule.courses}
 def topmenu():
     '''
     topmenu is the top level loop of the course search app
