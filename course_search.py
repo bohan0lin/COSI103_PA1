@@ -20,6 +20,7 @@ subject (filter by subject, e.g. COSI, or LALS)
 title  (filter by phrase in title)
 description (filter by phrase in description)
 timeofday (filter by day and time, e.g. meets at 11 on Wed)
+remote (filter by remote mode)
 '''
 
 terms = {c['term'] for c in schedule.courses}
@@ -51,9 +52,12 @@ def topmenu():
         elif command in ['c', 'course']:
              coursenum = input("enter a course number: ")
              schedule=schedule.coursenum(coursenum)
-#         elif command in ['i', 'instructor']:
-#             instructor = input("enter an instructor name: ")
-#             schedule = Schedule([course for course in schedule.courses if instructor in course['instructor']])
+        elif command in ['i', 'instructor']:
+             instructor = input("enter an instructor's last name or email: ")
+             if '@' in instructor:
+                 schedule=schedule.email(instructor)
+             else:
+                 schedule=schedule.lastname(instructor)
         elif command in ['title']:
             phrase = input("enter a title: ")
             schedule = schedule.title(phrase)
@@ -62,6 +66,8 @@ def topmenu():
             schedule = schedule.description(description)
         elif command in ['v', 'vacant']:
             schedule = schedule.vacancy()
+        elif command in ['remote']:
+            schedule = schedule.remote()
         else:
             print('command',command,'is not supported')
             continue
