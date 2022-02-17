@@ -67,3 +67,7 @@ class Schedule():
         ''' coursenum filters the courses that include the coursenum'''
         return Schedule([course for course in self.courses if coursenum in course['coursenum']])
     
+    def remote(self):
+        ''' remote filters the courses that are provided remotely'''
+        return Schedule([course for course in self.courses if 'remotely' in course['details']])
+    
