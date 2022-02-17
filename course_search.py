@@ -25,13 +25,12 @@ remote (filter by remote mode)
 
 terms = {c['term'] for c in schedule.courses}
 course = {c['coursenum'] for c in schedule.courses}
-instructor={c['instructor'][1] for c in schedule.courses}
 def topmenu():
     '''
     topmenu is the top level loop of the course search app
     '''
     global schedule
-    while True:         
+    while True:       
         command = input(">> (h for help) ")
         if command=='quit':
             return
@@ -50,14 +49,14 @@ def topmenu():
             subject = input("enter a subject: ")
             schedule = schedule.subject([subject])
         elif command in ['c', 'course']:
-             coursenum = input("enter a course number: ")
-             schedule=schedule.coursenum(coursenum)
+            coursenum = input("enter a course number: ")
+            schedule=schedule.coursenum(coursenum)
         elif command in ['i', 'instructor']:
-             instructor = input("enter an instructor's last name or email: ")
-             if '@' in instructor:
-                 schedule=schedule.email(instructor)
-             else:
-                 schedule=schedule.lastname(instructor)
+            instructor = input("enter an instructor's last name or email: ")
+            if '@' in instructor:
+                schedule=schedule.email(instructor)
+            else:
+                schedule=schedule.lastname(instructor)
         elif command in ['title']:
             phrase = input("enter a title: ")
             schedule = schedule.title(phrase)
@@ -80,7 +79,7 @@ def topmenu():
 
 def print_course(course):
     '''
-    print_course prints a brief description of the course 
+    print_course prints a brief description of the course
     '''
     print(course['subject'],course['coursenum'],course['section'],
           course['name'],course['term'],course['instructor'])
