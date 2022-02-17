@@ -63,3 +63,7 @@ class Schedule():
         '''vacancy filters the courses that the number of enrolled students is less than the limit of the course'''
         return Schedule([course for course in self.courses if course['limit'] != None if course['limit'] > course['enrolled']])
     
+    def coursenum(self,coursenum):
+        ''' coursenum filters the courses that include the coursenum'''
+        return Schedule([course for course in self.courses if coursenum in course['coursenum']])
+    
