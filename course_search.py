@@ -15,7 +15,7 @@ quit
 reset
 term  (filter by term)
 course (filter by coursenum, e.g. COSI 103a)
-instructor (filter by instructor)
+instructor (filter by instructor last name or email)
 subject (filter by subject, e.g. COSI, or LALS)
 title  (filter by phrase in title)
 description (filter by phrase in description)
