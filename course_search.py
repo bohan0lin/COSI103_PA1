@@ -50,10 +50,10 @@ def topmenu():
             schedule = schedule.subject([subject])
         elif command in ['c', 'course']:
              coursenum = input("enter a course number: ")
-             schedule = Schedule([course for course in schedule.courses if coursenum.split(" ")[0] == course['code'][0] and  coursenum.split(" ")[1] == course['code'][1]])
-        elif command in ['i', 'instructor']:
-            instructor = input("enter an instructor name: ")
-            schedule = Schedule([course for course in schedule.courses if instructor in course['instructor']])
+             schedule=schedule.coursenum(coursenum)
+#         elif command in ['i', 'instructor']:
+#             instructor = input("enter an instructor name: ")
+#             schedule = Schedule([course for course in schedule.courses if instructor in course['instructor']])
         elif command in ['title']:
             phrase = input("enter a title: ")
             schedule = schedule.title(phrase)
