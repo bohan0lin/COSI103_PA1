@@ -50,9 +50,10 @@ class Schedule():
             print("can't sort by "+str(field)+" yet")
             return self
     
-    def title(self, phrase):
-        '''title filters the courses containing the phrase in name'''
+    def title(self,phrase):
         return Schedule([course for course in self.courses if phrase in course['name']])
+    
+  
 
     def description(self, phrase):
         '''description filters the courses containing the phrase in the description'''
@@ -61,3 +62,4 @@ class Schedule():
     def vacancy(self):
         '''vacancy filters the courses that the number of enrolled students is less than the limit of the course'''
         return Schedule([course for course in self.courses if course['limit'] != None if course['limit'] > course['enrolled']])
+    
