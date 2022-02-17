@@ -23,8 +23,8 @@ timeofday (filter by day and time, e.g. meets at 11 on Wed)
 '''
 
 terms = {c['term'] for c in schedule.courses}
-course = {c['code'] for c in schedule.courses}
-instructor={c['instructor'][1:2] for c in schedule.courses}
+course = {c['coursenum'] for c in schedule.courses}
+instructor={c['instructor'][1] for c in schedule.courses}
 def topmenu():
     '''
     topmenu is the top level loop of the course search app
@@ -48,12 +48,12 @@ def topmenu():
         elif command in ['s','subject']:
             subject = input("enter a subject: ")
             schedule = schedule.subject([subject])
-        # elif command in ['c', 'course']:
-        #     coursenum = input("enter a course number: ")
-        #     schedule = Schedule([course for course in schedule.courses if coursenum.split(" ")[0] == course['code'][0] and  coursenum.split(" ")[1] == course['code'][1]])
-        # elif command in ['i', 'instructor']:
-        #     instructor = input("enter an instructor name: ")
-        #     schedule = Schedule([course for course in schedule.courses if instructor in course['instructor']])
+        elif command in ['c', 'course']:
+             coursenum = input("enter a course number: ")
+             schedule = Schedule([course for course in schedule.courses if coursenum.split(" ")[0] == course['code'][0] and  coursenum.split(" ")[1] == course['code'][1]])
+        elif command in ['i', 'instructor']:
+            instructor = input("enter an instructor name: ")
+            schedule = Schedule([course for course in schedule.courses if instructor in course['instructor']])
         elif command in ['title']:
             phrase = input("enter a title: ")
             schedule = schedule.title(phrase)
