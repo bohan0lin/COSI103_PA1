@@ -26,7 +26,7 @@ remote (filter by remote mode)
 terms = {c['term'] for c in schedule.courses}
 course = {c['coursenum'] for c in schedule.courses}
 subject={c['subject'] for c in schedule.courses}
-
+''' This is a test.'''
 def topmenu():
     '''
     topmenu is the top level loop of the course search app
