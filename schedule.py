@@ -53,7 +53,8 @@ class Schedule():
     def title(self,phrase):
         return Schedule([course for course in self.courses if phrase in course['name']])
     
-  
+    def firstname(self,firstname):
+     return Schedule([course for course in self.courses if course['instructor'][0] in firstname])   
 
     def description(self, phrase):
         '''description filters the courses containing the phrase in the description'''
