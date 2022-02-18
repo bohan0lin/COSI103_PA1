@@ -30,7 +30,7 @@ def topmenu():
     topmenu is the top level loop of the course search app
     '''
     global schedule
-    while True:       
+    while True:
         command = input(">> (h for help) ")
         if command=='quit':
             return
@@ -86,4 +86,4 @@ def print_course(course):
 
 if __name__ == '__main__':
     topmenu()
-#trial for homework
+#trial again
